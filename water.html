@@ -1,0 +1,258 @@
+<html>
+<head>
+<script>
+function watervalidation()
+{
+var a1=document.forms["water"]["cname"].value;
+var a2=document.forms["water"]["mobno"].value;
+var a3=document.forms["water"]["dropdown"].selectedIndex;
+var a4=document.forms["water"]["slct1"].selectedIndex;
+var a5=document.forms["water"]["slct2"].selectedIndex;
+var a6=document.forms["water"]["tv"].value;
+var a7=document.forms["water"]["loc"].value;
+if(a1.length==0)
+{
+alert("Please enter your Name");
+return false;
+}
+if(!a1.match(/^[A-Za-z ]+$/))
+{
+alert("Name should be filled with alphabets only");
+return false;
+}
+if(a2.length==0)
+{
+alert("Please enter your Mobile Number");
+return false;
+}
+if(!a2.match(/^[0-9 ]+$/))
+{
+alert("Mobile Number should be filled with numbers only");
+return false;
+}
+if(a2.length!=10)
+{
+alert("Mobile number should contain exactly 10 digits");
+return false;
+}
+if(a3<=0)
+{
+alert("select your grievance nature");
+return false;
+}
+if(a4<=0)
+{
+alert("select your state");
+return false;
+}
+if(a5<=0)
+{
+alert("select your District");
+return false;
+}
+if(a6.length==0)
+{
+alert("Please enter town");
+return false;
+}
+if(!a6.match(/^[A-Za-z ]+$/))
+{
+alert("Town Name should be filled with alphabets only");
+return false;
+}
+if(a7.length==0)
+{
+alert("Please enter your locality");
+return false;
+}
+if(!a7.match(/^[A-Za-z ]+$/))
+{
+alert("Locality should be filled with alphabets only");
+return false;
+}
+return true;
+}
+function populate(s1,s2){
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	s2.innerHTML = "";
+	if(s1.value == "Tamilnadu"){
+		var optionArray = ["|","ariyalur|Ariyalur","chennai|Chennai","chengalpattu|Chengalpattu","coimbature|Coimbature","cuddalore|Cuddalore","dharmapuri|Dharmapuri","kanchipuram|Kanchipuram","kanyakumari|Kanyakumari","madurai|Madurai","salem|Salem","thanjavur|Thanjavur","tiruchirapalli|Tiruchirapalli","thiruvannamalai|Thiruvannamalai","theni|Theni","vellore|Vellore","villupuram|Villupuram"];
+	} else if(s1.value == "Andhra Pradesh"){
+		var optionArray = ["|","chittor|Chittoor","kurnool|Kurnool","kadapa|Kadapa","ananthapur|Ananthapur","guntur|Guntur","krishna|Krishna","east godavari|East Godavari","nellore|Nellore","prakasam|Prakasam","srikakulam|Srikakulam","vishakapatnam|Vishakapatnam","vizianagaram|Vizianagaram","west godavari|West Godavari"];
+	} else if(s1.value == "Telangana"){
+		var optionArray = ["|","adilabad|Adilabad","hyderabad|Hyderabad","karimnagar|Karimnagar","khammam|Khammam","mahabubnagar|Mahabubnagar","mahabubabad|Mahabubabad","mancherial|Mancherial","medak|Medak","nalgonda|Nalgonda","nizamabad|Nizamabad","ranga reddy|Ranga Reddy","siddipet|Siddipet","suryapet|Suryapet","warangal|Warangal"];
+	} else if(s1.value == "Karnataka"){
+		var optionArray = ["|","bagalkot|Bagalkot","bengaluru rural|Bengaluru Rural","bengaluru urban|Bengaluru Urban","belagavi|Belagavi","ballari|Ballari","bidar|Bidar","vijaypur|Vijaypur","chamarajanagar|Chamarajanagar","chikballapur|Chikballapur","chikkamagaluru|Chikkamagaluru","chitradurga|Chitradurga","dakshina kannada|Dakshina Kannada","davanagare|Davanagare","dharwad|Dharwad","gadag|Gadag","kalaburagi|Kalaburagi","hassan|Hassan","haveri|Haveri","kodagu|Kodagu","kolar|Kolar","koppal|Koppal","mandya|Mandya","mysuru|Mysuru","raichur|Raichur","ramanagara|Ramanagara","shivamogga|Shivamogga","tumakuru|Tumakuru","udipi|Udipi","uttar kannada|Uttar Kannada","yadgir|Yadgir"]
+	} else if(s1.value == "Kerala"){
+		var optionArray = ["|","alappuzha|Alappuzha","ernakulam|Ernakulam","idukki|Idukki","kannur|Kannur","kasaragod|Kasaradod","kollam|Kollam","kottayam|Kottayam","kozhikode|Kozhikode","malappuram|Malappuram","palakkad|Palakkad","thiruvananthapuram|Thiruvananthapuram","thrissur|Thrissur","wayanad|Wayanad"]
+	} else if(s1.value == "Goa"){
+		var optionArray = ["|","north goa|North Goa","south goa|South Goa"]
+	} else if(s1.value == "Odisha"){
+		var optionArray = ["|","angul|Angul","boudh|Boudh","balangir|Balangir","bargarh|Bargarh","balasore|Balasore","cuttak|Cuttak","deogarh|Deogarh","ganjam|Ganjam","gajapatti|Gajapatti","jajpur|Jajpur","khordha|Khordha","kalahandi|Kalahandi","koraput|Koraput","nabarangpur|Nabarangpur","puri|Puri","nayagarh|Nayagarh","rayagada|Rayagada","sambalpur|Sambalpur","sundargarh|Sundargarh"]
+	} else if(s1.value == "Madya Pradesh"){
+		var optionArray = ["|","bhopal|Bhopal","rajgarh|Rajgarh","vidisha|Vidisha","sheopur|Sheopur","bhind|Bhind","gwalior|Gwalior","shivapuri|Shivapuri","guna|Guna","barwani|Barwani","indore|Indore","dhar|Dhar","alirajpur|Alirajpur","balaghat|Balaghat","katni|Katni","mandla|Mandla","betul|Betul","harda|Harda","panna|Panna","sagar|Sagar","niwari|Niwari","anuppur|Anuppur","umaria|Umaria","shahdhol|Shahdhol","dewas|Dewas","neemuch|Neemuch","ratlam|Ratlam","shahjapur|Shahjapur","ujjain|Ujjain","mandsaur|Mandsaur"]
+	} else if(s1.value == "Uttar Pradesh"){
+		var optionArray = ["|","agra|Agra","amroha|Amroha","badaun|Badaun","ballia|Ballia","balrampur|Balrampur","banda|Banda","bijnor|Bijnor","chitrakoot|Chitrakoot","deoria|Deoria","etah|etah","faizabad|Faizabad","fatehpur|Fatehpur","gautam buddha nagar|Gautam Buddha Nagar","ghaziabad|Ghaziabad","ghazipur|Ghazipur","gonda|Gonda","jhansi|Jhansi","kanpur nagar|Kanpur Nagar","lucknow|Lucknow","mathura|Mathura","mirzapur|Mirzapur","muzaffarnagar|Muzzaffarnagar","sambhal|Sambhal","shamli|Shamli","allahabad|Allahabad","varanasi|Varanasi","sultanpur|Sultanpur"]
+	} else if(s1.value == "Himachal Prdesh"){
+		var optionArray = ["|","bilaspur|Bilaspur","chamba|Chamba","hamirpur|Hamirpur","kangra|Kangra","kinnaur|Kinnaur","lahaul and spiti|Lahaul and Spiti","mandi|Mandi","shimla|Shimla","sirmaur|Sirmaur","solan|Solan","una|Una"]
+	} else if(s1.value == "Bihar"){
+		var optionArray = ["|","araria|Araria","aurangabad|Aurangabad","banka|Banka","bhagalpur|Bhagalpur","bhojpur|Bhojpur","buxar|Buxar","gaya|Gaya","gopalganj|Gopalganj","jamui|Jamui","khagaria|Khagaria","kaimur|Kaimur","katihar|Katihar","munger|Munger","madhepura|Madhepura","muzaffarpur|Muzaffarpur","nalanda|Nalanda","nawada|Nawada","patna|Patna","purnia|Purnia","saran|Saran","siwan|Siwan","vaishali|Vaishali","west champaran|West Champaran","sheohar|Sheohar","supaul|Supaul","sitamarhi|Sitamarhi","saharsa|Saharsa","rohtas|Rohtas"]
+	} else if(s1.value == "Assam"){
+		var optionArray = ["|","baksa|Baksa","barpeta|Barpeta","biswanath|Biswanath","cachar|Cachar","chirang|Chirang","darrang|Darrang","dhubri|Dhubri","goalpara|Goalpara","golaghat|Golaghat","hojai|Hojai","jorhat|Jorhat","kamrup|Kamrup","karbi|Karbi","hailakandi|Hailakandi","karimganj|Karimganj","kokrajhar|Kokrajhar","sonitpur|Sonitpur","nalbari|Nalbari","nagaon|Nagaon","majuli|Majuli","tinsukia|Tinsukia","udalguri|Udalguri"]
+	} else if(s1.value == "Rajasthan"){
+		var optionArray = ["|","ajmer|Ajmer","alwar|Alwar","baran|Baran","barmer|Barmer","bharatpur|Bharatpur","bhilwara|Bhilwara","bundi|Bundi","chittorgarh|Chittorgarh","churu|Churu","dausa|Dausa","dholpur|Dholpur","jaipur|Jaipur","jaisalmer|Jaisalmer","jalor|Jalor","jodhpur|Jodhpur","kota|Kota","pali|Pali","sikar|Sikar","tonk|Tonk","sirohi|Sirohi","nagaur|Nagaur","karauli|Karauli","pratapgarh|Pratapgarh"]
+	} else if(s1.value == "Chhattisgarh"){
+		var optionArray = ["|","balod|Balod","baloda bazar|Baloda Bazar","balrampur|Balrampur","bastar|Bastar","bemetara|Bemetara","bijapur|Bijapur","bilaspur|Bilaspur","durg|Durg","jashpur|Jashpur","kanker|Kanker","korba|Korba","narayanpur|Narayanpur","raigarh|Raigarh","raipur|Raipur","sukma|Sukma","surajpur|Surajpur","koriya|Koriya","mungeli|Mungeli"]
+	} else if(s1.value == "Gujarat"){
+		var optionArray = ["|","ahmedabad|Ahmedabad","amreli|Amreli","anand|Anand","bharuch|Bharuch","botad|Botad","dahod|Dahod","dang|Dang","gir somnath|Gir Somnath","jamnagar|Jamnagar","junagadh|Junagadh","kutch|Kutch","kheda|Kheda","mehsana|Mehsana","morbi|Morbi","narmada|Narmada","navsari|Navsari","patan|Patan","porbandar|Porbandar","rajkot|Rajkot","surat|Surat","tapi|Tapi","valsad|Valsad"]
+	} else if(s1.value == "Haryana"){
+		var optionArray = ["|","ambala|Ambala","bhiwani|Bhiwani","faridabad|Faridabad","gurugram|Gurugram","hisar|Hisar","jind|Jind","kaithal|Kaithal","karnal|Karnal","kurukshetra|Kurukshetra","nuh|Nuh","palwal|Palwal","panipat|Panipat","rewari|Rewari","rohtak|Rohtak","sirsa|Sira","sonipat|Sonipat"]
+	} else if(s1.value == "Jarkhand"){
+		var optionArray = ["|","bokaro|Bokaro","chatra|Chatra","deoghar|Deoghar","dhanbad|Dhanbad","dumka|Dumka","garhwa|Garhwa","giridih|Giridih","godda|Godda","gumla|Gumla","jamtara|Jamtara","khunti|Khunti","latehar|Latehar","pakur|Pakur","palamu|Palamu","ranchi|Ranchi","ramgarh|Ramgarh","seraikela|Seraikela","simdega|Simdega","hazaribagh|Hazaribagh","lohardaga|Lohardaga"]
+	} else if(s1.value == "Maharastra"){
+		var optionArray = ["|","ahmednagar|Ahmednagar","amravati|Amravati","aurangabad|Aurangabad","beed|Beed","buldhana|Buldhana","chandrapur|Chandrapur","dhule|Dhule","gondia|Gondia","jalgaon|Jalgaon","jalna|Jalna","kolhapur|Kolhapur","latur|Latur","mumbai city|Mumbai City","nagpur|Nagpur","nashik|Nashik","osmanabad|Osmanabad","palghar|Palghar","pune|Pune","raigad|Raigad","sangali|Sangali","satara|Satara","solapur|Solapur","thane|Thane","wardha|Wardha","parbhani|Parbhani"]
+	} else if(s1.value == "Manipur"){
+		var optionArray = ["|","bishnupur|Bishnupur","thoubal|Thoubal","imphal east|Imphal East","imphal west|Imphal West","senapati|Senapati","ukhrul|Ukhrul","chandel|Chandel","tamenglong|Tamenglong"]
+	} else if(s1.value == "Meghalaya"){
+		var optionArray = ["|","east garo hills|East Garo Hills","east khasi hills|East Khasi Hills","jaintia hills|Jaintia Hills","ri bhoi|Ri Bhoi","south garo hills|South Garo Hills","west garo hills|West Garo Hills","west khasi hills|West Khasi Hills"]
+	} else if(s1.value == "Mizoram"){
+		var optionArray = ["|","aizwal|Aizwal","kolasib|Kolasib","lawngtlai|Lawngtlai","lunglei|Lunglei","mamit|Mamit","saiha|Saiha","serchhip|Serchhip","champhai|Champhai"]
+	} else if(s1.value == "Nagaland"){
+		var optionArray = ["|","dimapur|Dimapur","kohima|Kohima","longleng|Longleng","mon|Mon","peren|Peren","phek|Phek","wokha|Wokha","noklak|Noklak","kiphire|Kiphire"]
+	} else if(s1.value == "Punjab"){
+		var optionArray = ["|","amritsar|Amritsar","bathinda|Bathinda","faridkot|Faridkot","firozpur|Firozpur","fazilka|Fazilka","gurdaspur|Gurdaspur","hoshiarpur|Hoshiarpur","jalandhar|Jalandhar","ludhiana|Ludhiana","mansa|Mansa","moga|Moga","pathankot|Pathankot","patiala|Patiala","rupnagar|Rupnagar","sangrur|Sangrur","barnala|Barnala"]
+	} else if(s1.value == "Sikkim"){
+		var optionArray = ["|","east sikkim|East Sikkim","north sikkim|North Sikkim","south sikkim|South Sikkim","west sikkim|West Sikkim"]
+	} else if(s1.value == "Tripura"){
+		var optionArray = ["|","dhalai|Dhalai","north tripura|North Tripura","south tripura|South Tripura","west tripura|West Tripura"]
+	} else if(s1.value == "Uttarkhand"){
+		var optionArray = ["|","almora|Almora","bageshwar|Bageshwar","chamoli|Chamoli","champawat|Champawat","dehradun|Dehradun","haridwar|Haridwar","nainital|Nainital","pauri garhwal|Pauri Garhwal","pithoragarh|Pithoragarh","rudraprayag|Rudraprayag","udham singh|Udham Singh"]
+	} else if(s1.value == "West Bengal"){
+		var optionArray = ["|","alipurduar|Alipurduar","bankura|Bankura","birbhum|Birbhum","cooch behar|Cooch Behar","dakshin dinajpur|Dakshin Dinajpur","darjeeling|Darjeeling","hooghly|Hooghly","howrah|Howrah","jalpaiguri|Jalpaiguri","jhargram|Jhargram","kalimpong|Kalimpong","kolkata|Kolkata","malda|Malda","murshidabad|Murshidabad","nadia|Nadia","uttar dinajpur|Uttar Dinajpur","purulia|Purulia","paschim bardhaman|Paschim Bardhaman","purba bardhaman|Purba Bardhaman","paschim medinipur|Paschim Medinipur","purba medinipur|Purba Medinipur","north 24 parganas|North 24 Parganas","south 24 parganas|South 24 Parganas"]
+	}
+	for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		s2.options.add(newOption);
+	}
+}
+</script>
+<style>
+body{
+font-family:trebuchet ms;
+background-image:url("water3.jpg");
+background-repeat:no-repeat;
+background-position:-100px -350px;
+color:white;
+}
+table{
+margin-top:-300px;
+margin-left:s12px;
+margin-bottom:-10px;
+margin-right:-12px;
+font-size:16;
+}
+fieldset{
+margin-top:150px;
+margin-left:450px;
+margin-right:870px;
+background-color:#2E889A;
+opacity:0.8;
+border-radius:15px;
+}
+legend{
+background-color:white;
+font-size:20;
+color:black;
+}
+input[type="submit"]
+{
+background-color:white;
+}
+input[type="text"]
+{
+width:200px;
+border-radius:5px;
+}
+select
+{
+width:120px;
+border-radius:5px;
+}
+a{
+text-decoration:none;
+color:black;
+background-color:white;
+font-family:calibri;
+font-size:18;
+border:5px solid none;
+}
+textarea{
+border-radius:5px;
+}
+i{
+color:white;
+}
+</style>
+</head>
+<body>
+<form name="water" onsubmit="return watervalidation();" action="u5.php" method="post">
+<fieldset>
+<legend>
+Water Problem</legend><br>
+<table style="width:350px" cellspacing="9">
+<br><tr><td><b>Name</b></td><td><input type="text" name="cname"></td></tr><br><br>
+<tr><td><b>Mobile Number</b></td><td><input type="text" name="mobno"></td></tr><br><br>
+<tr><td><b>Grievance</b></td><td><select name="dropdown">
+<option value="-Select" selected>-Select-</option>
+<option value="Less Water Supply">Less Water Supply</option>
+<option value="Unpleasant odour of Water">Unpleasant odour of Water</option>
+<option value="Chemicals in Water">Chemicals in Water</option>
+<option value="Hard Water">Hard Water</option>
+<option value="Others">Others</option></select></td></tr><br><br>
+</select></td></tr><br><br><tr><td colspan="2"><b>Problem Description:</b><i>(Optional)</i></td><br/>
+<tr><td colspan="2"><textarea rows="3" cols="45" name="prob">
+</textarea></td></tr><br><br>
+<tr><td><b>State</b></td><td><select id="slct1" name="slct1" onchange="populate('slct1','slct2')">
+<option value=""></option>
+<option value="Tamilnadu">Tamilnadu</option>
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Telangana">Telangana</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Kerala">Kerala</option>
+<option value="Goa">Goa</option>
+<option value="Odisha">Odisha</option>
+<option value="Madya Pradesh">Madya Pradesh</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="Himachal Pradesh">Himachal Pradesh</option>
+<option value="Bihar">Bihar</option>
+<option value="Assam">Assam</option>
+<option value="Rajasthan">Rajasthan</option>
+<option value="Chhattisgarh">Chhattisgarh</option>
+<option value="Gujarat">Gujarat</option>
+<option value="Haryana">Haryana</option>
+<option value="Jarkhand">Jarkhand</option>
+<option value="Maharastra">Maharastra</option>
+<option value="Manipur">Manipur</option>
+<option value="Meghalaya">Meghalaya</option>
+<option value="Mizoram">Mizoram</option>
+<option value="Nagaland">Nagaland</option>
+<option value="Punjab">Punjab</option>
+<option value="Sikkim">Sikkim</option>
+<option value="Tripura">Tripura</option>
+<option value="Uttarkhand">Uttarkhand</option>
+<option value="West Bengal">West Bengal</option>
+</select></td></tr><br/>
+<tr><td><b>District</b></td><td><select id="slct2" name="slct2">
+</select></td></tr><br/>
+<tr><td><b>Town/Village</b></td><td><input type="text" name="tv"></td></tr><br/>
+<tr><td><b>Locality</b></td><td><input type="text" name="loc"></td></tr><br/>
+<tr><td align="center"><input type="submit" name="submit" onclick="watervalidation()" value="Submit My Complaint"></td><td align="right"><a href="egov.html">Back</a></td></tr>
+</table>
+</fieldset>
+</form>
+</body>
+</html>

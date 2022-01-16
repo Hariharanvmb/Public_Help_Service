@@ -1,0 +1,176 @@
+<html>
+<head>
+<script>
+function basicvalidation()
+{
+var a1=document.forms["basic"]["cname"].value;
+var a2=document.forms["basic"]["mobno"].value;
+var a3=document.forms["basic"]["dropdown"].selectedIndex;
+var a4=document.forms["basic"]["state"].selectedIndex;
+var a5=document.forms["basic"]["dist"].value;
+var a6=document.forms["basic"]["tv"].value;
+var a7=document.forms["basic"]["loc"].value;
+if(a1.length==0)
+{
+alert("Please enter your Name");
+return false;
+}
+if(!a1.match(/^[A-Za-z ]+$/))
+{
+alert("Name should be filled with alphabets only");
+return false;
+}
+if(a2.length==0)
+{
+alert("Please enter your Mobile Number");
+return false;
+}
+if(!a2.match(/^[0-9 ]+$/))
+{
+alert("Mobile Number should be filled with numbers only");
+return false;
+}
+if(a2.length!=10)
+{
+alert("Mobile number should contain exactly 10 digits");
+return false;
+}
+if(a3<=0)
+{
+alert("select your grievance nature");
+return false;
+}
+if(a4<=0)
+{
+alert("select your state");
+return false;
+}
+if(a5.length==0)
+{
+alert("Please enter District");
+return false;
+}
+if(!a5.match(/^[A-Za-z ]+$/))
+{
+alert("District Name should be filled with alphabets only");
+return false;
+}
+if(a6.length==0)
+{
+alert("Please enter town");
+return false;
+}
+if(!a6.match(/^[A-Za-z ]+$/))
+{
+alert("Town Name should be filled with alphabets only");
+return false;
+}
+if(a7.length==0)
+{
+alert("Please enter your locality");
+return false;
+}
+if(!a7.match(/^[A-Za-z ]+$/))
+{
+alert("Locality should be filled with alphabets only");
+return false;
+}
+return true;
+}
+</script>
+<style>
+body{
+font-family:trebuchet ms;
+background-image:url("basics.jpg");
+background-repeat:no-repeat;
+background-position:-100px -150px;
+color:white;
+}
+table{
+margin-top:-250px;
+margin-left:12px;
+margin-bottom:-10px;
+margin-right:-12px;
+font-size:16;
+
+}
+fieldset{
+margin-top:150px;
+margin-left:450px;
+margin-right:870px;
+background-color:#FF6633;
+opacity:0.7;
+border-radius:15px;
+}
+legend{
+background-color:white;
+font-size:20;
+color:black;
+}
+input[type="submit"]
+{
+background-color:yellow;
+font-family:trebuchet ms;
+}
+input[type="text"]
+{
+width:200px;
+border-radius:5px;
+}
+select
+{
+width:120px;
+border-radius:5px;
+}
+a{
+text-decoration:none;
+color:black;
+background-color:yellow;
+font-family:calibri;
+font-size:18;
+border:5px solid none;
+}
+textarea{
+border-radius:5px;
+}
+i{
+color:black;
+}
+</style>
+</head>
+<body>
+<form name="basic" onsubmit="return basicvalidation();" action="u1.php" method="post">
+<fieldset>
+<legend>
+Basic Issues</legend><br>
+<table style="width:350px" cellspacing="9">
+<br><tr><td><b>Name</b></td><td><input type="text" name="cname"></td></tr><br><br>
+<tr><td><b>Mobile Number</b></td><td><input type="text" name="mobno"></td></tr><br><br>
+<tr><td><b>Grievance</b></td><td><select name="dropdown">
+<option value="-Select" selected>-Select-</option>
+<option value="Street Light Issue">Street Light Issue</option>
+<option value="Telephone Wires Damage">Telephone Wires Damage</option>
+<option value="Loophole in Govt. School Organisation">Loophole in Govt. School Organisation</option>
+<option value="Traffic Congestion">Traffic Congestion</option>
+<option value="Trees Fallen on Roads">Trees Fallen on Roads</option>
+<option value="Others">Others</option>
+</select></td></tr><br><br><tr><td colspan="2"><b>Problem Description:</b><i>(Optional)</i></td><br/>
+<tr><td colspan="2"><textarea rows="3" cols="45" name="prob">
+</textarea></td></tr><br><br>
+<tr><td><b>State</b></td><td><select name="state">
+<option value="-Select" selected>-Select-</option>
+<option value="Tamilnadu">Tamilnadu</option>
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Kerala">Kerala</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Telangana">Telangana</option>
+</select></td></tr><br/>
+<tr><td><b>District</b></td><td><input type="text" name="dist"></td></tr><br/>
+<tr><td><b>Town/Village</b></td><td><input type="text" name="tv"></td></tr><br/>
+<tr><td><b>Locality</b></td><td><input type="text" name="loc"></td></tr><br/>
+<tr><td align="center"><input type="submit" name="submit" value="Submit My Complaint" onclick="basicvalidation()"></td><td align="right"><a href="egov.html">Back</a></td></tr>
+</table>
+</fieldset>
+</form>
+</body>
+</html>
